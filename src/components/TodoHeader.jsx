@@ -10,8 +10,6 @@ export default function TodoHeader() {
     console.log(darkMode);
   };
 
-  function DarkMode() {}
-
   return (
     <header className="h-12 pl-4 pr-4 pt-2 pb-2 flex justify-between items-center w-full bg-orange-100">
       {darkMode ? (
