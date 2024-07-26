@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+import styled from './TodoMenu.module.css';
 
 export default function TodoMenu() {
+  const [activeMenu, setActiveMenu] = useState({
+    All: true,
+    Active: false,
+    Completed: false,
+  });
+  const menus = ['All', 'Active', 'Completed'];
+
+  const MenuClick = (event) => {
+    const clickedMenu = event.target.innerText;
+    setActiveMenu(
+      menus.reduce((acc, menu) => {
+        acc[menu] = menu === clickedMenu;
+        return acc;
+      }, {})
+    );
+  };
+
   return (
     <ul className="font-bold pr-3">
-      <button className="text-orange-500 hover:text-orange-500">All</button>
-      <button className="text-orange-400 pl-2.5 hover:text-orange-500">
-        Active
-      </button>
-      <button className="text-orange-400 pl-2.5 hover:text-orange-500">
-        Completed
-      </button>
+      {menus.map((menu) => (
+        <button
+          key={menu}
+          className={` ${activeMenu[menu] ? styled.activeMenu : styled.menu} `}
+          onClick={MenuClick}
+        >
+          {menu}
+        </button>
+      ))}
     </ul>
   );
 }

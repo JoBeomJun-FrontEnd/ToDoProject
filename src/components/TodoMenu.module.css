@@ -1,0 +1,17 @@
+.menu {
+  color: rgb(251 146 60);
+  padding-left: 0.625rem;
+}
+
+.menu:hover {
+  color: rgb(234 88 12);
+}
+
+.activeMenu {
+  color: rgb(234 88 12);
+  padding-left: 0.625rem;
+  text-decoration-line: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 3px;
+  text-decoration-color: black;
+}
