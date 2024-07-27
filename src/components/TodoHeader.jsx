@@ -1,29 +1,19 @@
-import React, { useState } from 'react';
-import { IoSunny } from 'react-icons/io5';
+import React, { useContext } from 'react';
 import TodoMenu from './TodoMenu';
-import { FaMoon } from 'react-icons/fa';
+import TodoDarkMode from './TodoDarkMode';
+import { DarkModeContext } from '../context/DarkModeContext';
 
 export default function TodoHeader() {
-  const [darkMode, setDarkMode] = useState(false);
-  const darkModeClick = () => {
-    setDarkMode(!darkMode);
-    console.log(darkMode);
-  };
+  const { darkMode } = useContext(DarkModeContext);
 
-  return (
+  return darkMode ? (
+    <header className="h-12 pl-4 pr-4 pt-2 pb-2 flex justify-between items-center w-full bg-[#1A1C34]">
+      <TodoDarkMode />
+      <TodoMenu />
+    </header>
+  ) : (
     <header className="h-12 pl-4 pr-4 pt-2 pb-2 flex justify-between items-center w-full bg-orange-100">
-      {darkMode ? (
-        <FaMoon
-          className="text-gray-600 hover:text-orange-500"
-          onClick={darkModeClick}
-        />
-      ) : (
-        <IoSunny
-          className="text-gray-600 hover:text-orange-500"
-          onClick={darkModeClick}
-        />
-      )}
-
+      <TodoDarkMode />
       <TodoMenu />
     </header>
   );

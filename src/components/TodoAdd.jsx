@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DarkModeContext } from '../context/DarkModeContext';
 
 export default function TodoAdd() {
-  return (
+  const { darkMode } = useContext(DarkModeContext);
+  return darkMode ? (
+    <div className="font-bold pl-6 pr-6 pt-3 pb-3 flex justify-center items-center w-full h-16 bg-[#1A1C34]">
+      <input
+        className="rounded-s-md pl-3 h-full w-full bg-[#22243A]"
+        type="text"
+        placeholder="Add Todo"
+      />
+      <button className="bg-orange-500 hover:bg-orange-400 rounded-e-md text-white w-2/12 h-full">
+        Add
+      </button>
+    </div>
+  ) : (
     <div className="font-bold pl-6 pr-6 pt-3 pb-3 flex justify-center items-center w-full h-16 bg-orange-100">
       <input
         className="rounded-s-md pl-3 h-full w-full"
