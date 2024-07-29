@@ -20,7 +20,7 @@ export default function TodoList() {
 
   return darkMode ? (
     <ul className="flex flex-col h-full text-white">
-      {todoList.todoContents.map((todo, index) => {
+      {todoList.todoContents.forecah((todo, index) => {
         if (selectMenu === 'All') {
           return (
             <article
@@ -98,7 +98,7 @@ export default function TodoList() {
     </ul>
   ) : (
     <ul className="flex flex-col h-full">
-      {todoList.todoContents.map((todo, index) => {
+      {todoList.todoContents.forecah((todo, index) => {
         if (selectMenu === 'All') {
           return (
             <article
