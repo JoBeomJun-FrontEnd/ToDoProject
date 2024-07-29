@@ -3,7 +3,7 @@ import { DarkModeContext } from '../context/DarkModeContext';
 import { ListContext } from '../context/ListContext';
 
 export default function TodoAdd() {
-  const { todoList, addTodoList } = useContext(ListContext);
+  const { addTodoList } = useContext(ListContext);
   const { darkMode } = useContext(DarkModeContext);
   const [inputValue, setInputValue] = useState('');
 

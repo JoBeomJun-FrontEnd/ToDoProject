@@ -6,7 +6,7 @@ export function ListProvider({ children }) {
   const [todoList, setTodoList] = useState(list);
   const addTodoList = ({ active, detail }) => {
     let count = 0;
-    todoList.todoContents.filter((content) => {
+    todoList.todoContents.map((content) => {
       if (content.detail === detail) {
         count++;
       }
