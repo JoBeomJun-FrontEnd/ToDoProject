@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from './TodoMenu.module.css';
+import { HeaderMenuContext } from '../context/HeaderMenuContext';
 
 export default function TodoMenu() {
   const [activeMenu, setActiveMenu] = useState({
@@ -9,6 +10,8 @@ export default function TodoMenu() {
   });
   const menus = ['All', 'Active', 'Completed'];
 
+  const { changeSelectMenu } = useContext(HeaderMenuContext);
+
   const MenuClick = (event) => {
     const clickedMenu = event.target.innerText;
     setActiveMenu(
@@ -17,6 +20,7 @@ export default function TodoMenu() {
         return acc;
       }, {})
     );
+    changeSelectMenu(clickedMenu);
   };
 
   return (
