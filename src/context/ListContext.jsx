@@ -27,7 +27,6 @@ export function ListProvider({ children }) {
   };
 
   const activeChange = (detail) => {
-    console.log('s');
     setTodoList((prev) => ({
       todoContents: prev.todoContents.map((content) =>
         content.detail === detail
