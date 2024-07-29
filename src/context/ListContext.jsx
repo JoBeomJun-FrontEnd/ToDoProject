@@ -26,8 +26,21 @@ export function ListProvider({ children }) {
     }));
   };
 
+  const activeChange = (detail) => {
+    console.log('s');
+    setTodoList((prev) => ({
+      todoContents: prev.todoContents.map((content) =>
+        content.detail === detail
+          ? { ...content, active: !content.active }
+          : content
+      ),
+    }));
+  };
+
   return (
-    <ListContext.Provider value={{ todoList, addTodoList, deleteTodoList }}>
+    <ListContext.Provider
+      value={{ todoList, addTodoList, deleteTodoList, activeChange }}
+    >
       {children}
     </ListContext.Provider>
   );
